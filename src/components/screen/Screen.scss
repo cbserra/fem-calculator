@@ -1,0 +1,34 @@
+@import "../../styles/colors.scss";
+
+.screen-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 5.5rem;
+  background-color: $theme1-bg-screen;
+  border-radius: 0.625rem;
+  padding: 1rem;
+}
+
+.screen-value {
+  font-size: 2.5rem;
+  line-height: 2.25rem;
+
+  text-align: right;
+  letter-spacing: -0.0625rem;
+}
+
+@media (min-width: 700px) {
+  .screen-container {
+    width: 100%;
+    height: 8rem;
+    border-radius: 0.625rem;
+  }
+
+  .screen-value {
+    font-size: 3.5rem;
+    line-height: 3.25rem;
+    letter-spacing: -0.0625rem;
+  }
+}

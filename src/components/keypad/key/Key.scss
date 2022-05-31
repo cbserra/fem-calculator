@@ -1,0 +1,72 @@
+@import "/src/styles/colors.scss";
+
+.key {
+  cursor: pointer;
+  display: flex;
+  height: 4rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.033rem;
+  border-radius: 0.3125rem;
+}
+
+.key-width-1 {
+  width: 3.75rem;
+}
+
+.key-width-2 {
+  width: 8.5rem;
+}
+
+.key-color-1,
+.key-color-2 {
+  font-size: 1.25rem;
+  line-height: 1.125rem;
+  letter-spacing: -0.02rem;
+  color: $theme1-darkbg-text;
+}
+
+.key-color-3 {
+  color: $theme1-lightbg-text;
+}
+
+.key-color-1 {
+  background-color: $theme1-key2-bg;
+  box-shadow: inset 0px -4px 0px $theme1-key2-shadow;
+}
+
+.key-color-2 {
+  background-color: $theme1-key1-bg;
+  box-shadow: inset 0px -4px 0px $theme1-key1-shadow;
+}
+
+.key-color-3 {
+  background-color: $theme1-key3-bg;
+  box-shadow: inset 0px -4px 0px #b3a497;
+}
+
+@media (min-width: 750px) {
+  .key {
+    height: 4rem;
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    letter-spacing: -0.041;
+    border-radius: 0.625rem;
+  }
+
+  .key-width-1 {
+    width: 6rem;
+  }
+
+  .key-width-2 {
+    width: 14rem;
+  }
+
+  .key-color-1,
+  .key-color-2 {
+    font-size: 1.75rem;
+    line-height: 1.625rem;
+  }
+}

@@ -1,0 +1,106 @@
+@import "/src/styles/colors.scss";
+
+// .keypad-container {
+//   //   wieth: 100%;
+//   background-color: $theme1-bg-keypad;
+//   border-radius: 1rem;
+//   display: grid;
+//   //   grid-template-columns: repeat(4, 7rem);
+//   //   grid-template-rows: repeat(5, 1fr);
+//   grid-template-columns: repeat(4, auto);
+//   grid-template-rows: repeat(5, auto);
+//   grid-auto-flow: row;
+//   grid-column-gap: 13px;
+//   grid-row-gap: 13px;
+// }
+
+.keypad-container {
+  display: grid;
+  //   width: 60%;
+  margin: 1.5rem;
+  padding: 1.5rem;
+  background-color: $theme1-bg-keypad;
+  border-radius: 1rem;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 0.75rem 0.75rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "key-7 key-8 key-9 key-del"
+    "key-4 key-5 key-6 key-add"
+    "key-1 key-2 key-3 key-sub"
+    "key-dec key-0 key-div key-mul"
+    "key-reset key-reset key-eq key-eq";
+}
+
+.key-9 {
+  grid-area: key-9;
+}
+
+.key-del {
+  grid-area: key-del;
+}
+
+.key-5 {
+  grid-area: key-5;
+}
+
+.key-6 {
+  grid-area: key-6;
+}
+
+.key-1 {
+  grid-area: key-1;
+}
+
+.key-2 {
+  grid-area: key-2;
+}
+
+.key-3 {
+  grid-area: key-3;
+}
+
+.key-sub {
+  grid-area: key-sub;
+}
+
+.key-dec {
+  grid-area: key-dec;
+}
+
+.key-0 {
+  grid-area: key-0;
+}
+
+.key-div {
+  grid-area: key-div;
+}
+
+.key-mul {
+  grid-area: key-mul;
+}
+
+.key-4 {
+  grid-area: key-4;
+}
+
+.key-reset {
+  grid-area: key-reset;
+}
+
+.key-eq {
+  grid-area: key-eq;
+}
+
+.key-add {
+  grid-area: key-add;
+}
+
+.key-7 {
+  grid-area: key-7;
+}
+
+.key-8 {
+  grid-area: key-8;
+}

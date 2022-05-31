@@ -1,0 +1,92 @@
+@import "/src/styles/colors.scss";
+
+.theme-selector-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  span {
+    margin-right: 2rem;
+  }
+}
+
+.theme-form {
+  display: flex;
+  flex-direction: column;
+  // height: 1.75rem;
+  //   &:before {
+  //     content: "  ";
+  //     position: absolute;
+  //     left: 0;
+  //     z-index: -1;
+  //     // width: 100%;
+  //     height: 3rem;
+  //     background: #000;
+  //     border-radius: 30px;
+  //   }
+
+  .labels {
+    margin: 0.25rem;
+
+    label {
+      //   display: inline-block;
+      //   width: 0.5rem;
+      padding: 0.2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: color 200ms ease-out;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .buttons {
+    background-color: $theme1-bg-screen;
+    border-radius: 16px;
+    width: 3rem;
+    height: 1.125rem;
+    // padding: 1rem;
+  }
+
+  .radio-theme {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .radio-theme:checked {
+    background: $theme1-key2-bg;
+  }
+
+  input[type="radio"] {
+    &:not(:checked),
+    &:checked {
+      opacity: 0;
+    }
+  }
+
+  #theme-1:checked ~ .switch-indicator {
+    transform: translate3d(0rem, 0, 0);
+  }
+  #theme-2:checked ~ .switch-indicator {
+    transform: translate3d(0.9rem, 0, 0);
+  }
+  #theme-3:checked ~ .switch-indicator {
+    transform: translate3d(1.8rem, 0, 0);
+  }
+
+  .switch-indicator {
+    width: 0.8rem;
+    height: 0.8rem;
+    position: relative;
+    background: $theme1-key2-bg;
+    border-radius: 50%;
+    top: -0.7rem;
+    left: 0.2rem;
+    transition: transform 600ms cubic-bezier(0.02, 0.94, 0.09, 0.97),
+      background 300ms cubic-bezier(0.17, 0.67, 0.14, 1.03);
+    transform: translate3d(0rem, 0, 0);
+    z-index: 100;
+  }
+}
