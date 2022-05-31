@@ -7,9 +7,10 @@ const Key = (props: KeyProps) => {
     return (
         <div 
             className={`key ${props.className} key-color-${props.bgType} key-width-${props.width}`}
-            onClick={() => { props.setArgument(props.value) }}
+            onClick={() => { props.argument(props.value) }}
             >
             {props.value}
+            <code>{props.argument.current}</code>
         </div>
     )
 }

@@ -21,7 +21,7 @@ const Screen = (props: ScreenProperties) => {
     return (
         <div className="screen-container">
             <div className="screen-value">
-                {screenValue && screenValue.map(value =>JSON.stringify(value))}
+                {screenValue && screenValue.map(value => value)}
             </div>
         </div>
     )
