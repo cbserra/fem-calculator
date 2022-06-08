@@ -1,17 +1,15 @@
-import { KeyProps, NumberDecimalOrOperation } from "../../../CalculatorTypes"
+import { KeyProps } from "../../../utils/CalculatorTypes"
 import './Key.scss'
-
-
 
 const Key = (props: KeyProps) => {
     return (
-        <div 
+        <button 
             className={`key ${props.className} key-color-${props.bgType} key-width-${props.width}`}
-            onClick={() => { props.argument(props.value) }}
+            onClick={() => { props.handleClick(props.value) }}
             >
             {props.value}
-            <code>{props.argument.current}</code>
-        </div>
+            <code>{props.handleClick.current}</code>
+        </button>
     )
 }
 

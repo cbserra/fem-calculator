@@ -1,28 +1,30 @@
-import { CalculatorArgument } from "../../CalculatorTypes"
 import './Screen.scss'
 
-interface Operation {
-    operation: '+' | '-' | '=' | '/' | 'DEL' | 'RESET'
+interface ScreenProps {
+    screenTotal: string,
+    // setScreenTotal: any,
+    // screenRegister: string[],
+    // setScreenRegister: any
 }
 
-type NumberDecimalOrOperation = number | '.' | Operation
+const Screen = (props: ScreenProps) => {
 
-interface ScreenProperties {
-    screenValue: any[],
-    setScreenValue: any,
-    // argument: CalculatorArgument,
-}
-
-const Screen = (props: ScreenProperties) => {
-
-    const screenValue = props.screenValue
-    const setScreenValue = props.setScreenValue    
+    const screenTotal = props.screenTotal
+    // const setScreenTotal = props.setScreenTotal
+    // const screenRegister = props.screenRegister
+    // const setScreenRegister = props.setScreenRegister
 
     return (
-        <div className="screen-container">
-            <div className="screen-value">
-                {screenValue && screenValue.map(value => value)}
-            </div>
+        <div className='screen-container'>
+            {screenTotal && (
+            // <input type={"text"} className='screen-total' value={screenTotal.current} readOnly={true} />
+            <div className='screen-total'>
+                {screenTotal}
+            </div>)}
+            {/* {screenRegister && (
+            <div className='screen-register'>
+                 {screenRegister.length === 0 ? '' : screenRegister.map(value => value)}
+            </div>)} */}
         </div>
     )
 }

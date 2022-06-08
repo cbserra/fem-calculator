@@ -11,10 +11,8 @@ body {
 }
 
 body {
-  background: $theme1-bg-main;
-  font-family: $font-family;
-  font-weight: $font-weight;
-  color: $theme1-darkbg-text;
+  font-weight: 700;
+  transition: all 0.5s linear;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
@@ -30,4 +28,5 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
 }

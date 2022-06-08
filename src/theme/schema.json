@@ -1,0 +1,157 @@
+{
+  "data": {
+    "one": {
+      "id": "theme1",
+      "name": "Blue",
+      "font": "League Spartan",
+      "colors": {
+        "body": {
+          "background": "hsl(222, 26%, 31%)",
+          "text": "hsl(0, 0%, 100%)"
+        },
+        "keypad": {
+          "background": "hsl(223, 31%, 20%)"
+        },
+        "screen": {
+          "background": "hsl(224, 36%, 15%)",
+          "text": "hsl(0, 0%, 100%)"
+        },
+        "toggle": {
+          "background": "hsl(224, 36%, 15%)",
+          "indicator": "hsl(6, 63%, 50%)"
+        },
+        "buttons": {
+          "delReset": {
+            "active": {
+              "background": "hsla(224, 51%, 76%, 1)",
+              "shadow": "hsla(225, 28%, 35%, 1)"
+            },
+            "background": "hsla(224, 21%, 49%, 1)",
+            "shadow": "hsla(225, 28%, 35%, 1)",
+            "text": "hsl(0, 0%, 100%)"
+          },
+          "equals": {
+            "active": {
+              "background": "hsla(6, 93%, 67%, 1)",
+              "shadow": "hsla(6, 70%, 34%, 1)"
+            },
+            "background": "hsla(6, 63%, 50%, 1)",
+            "shadow": "hsla(6, 70%, 34%, 1)",
+            "text": "hsl(0, 0%, 100%)"
+          },
+          "numericOp": {
+            "active": {
+              "background": "hsla(31, 100%, 100%, 1)",
+              "shadow": "hsla(27, 15%, 65%, 1)"
+            },
+            "background": "hsla(31, 24%, 89%, 1)",
+            "shadow": "hsla(27, 15%, 65%, 1)",
+            "text": "hsl(221, 14%, 31%)"
+          }
+        }
+      }
+    },
+    "two": {
+      "id": "theme2",
+      "name": "Light",
+      "font": "League Spartan",
+      "colors": {
+        "body": {
+          "background": "hsl(0, 0%, 90%)",
+          "text": "hsl(221, 14%, 31%)"
+        },
+        "keypad": {
+          "background": "hsl(0, 5%, 81%)"
+        },
+        "screen": {
+          "background": "hsl(0, 0%, 93%)",
+          "text": "hsl(221, 14%, 31%)"
+        },
+        "toggle": {
+          "background": "hsl(0, 5%, 81%)",
+          "indicator": "hsl(25, 98%, 40%)"
+        },
+        "buttons": {
+          "delReset": {
+            "active": {
+              "background": "hsla(184, 40%, 56%, 1)",
+              "shadow": "hsla(184, 59%, 25%, 1)"
+            },
+            "background": "hsla(184, 42%, 37%, 1)",
+            "shadow": "hsla(184, 59%, 25%, 1)",
+            "text": "hsla(0, 0%, 100%, 1)"
+          },
+          "equals": {
+            "active": {
+              "background": "hsla(25, 100%, 61%, 1)",
+              "shadow": "hsla(25, 99%, 27%, 1)"
+            },
+            "background": "hsla(25, 98%, 40%, 1)",
+            "shadow": "hsla(25, 99%, 27%, 1)",
+            "text": "hsla(0, 0%, 100%, 1)"
+          },
+          "numericOp": {
+            "active": {
+              "background": "hsla(0, 0%, 100%, 1)",
+              "shadow": "hsla(34, 11%, 61%, 1)"
+            },
+            "background": "hsla(45, 7%, 89%, 1)",
+            "shadow": "hsla(34, 11%, 61%, 1)",
+            "text": "hsla(60, 10%, 19%, 1)"
+          }
+        }
+      }
+    },
+    "three": {
+      "id": "theme3",
+      "name": "Neon",
+      "font": "League Spartan",
+      "colors": {
+        "body": {
+          "background": "hsl(268, 75%, 9%)",
+          "text": "hsl(52, 100%, 62%)"
+        },
+        "keypad": {
+          "background": "hsl(268, 71%, 12%)"
+        },
+        "screen": {
+          "background": "hsl(268, 71%, 12%)",
+          "text": "hsl(52, 100%, 62%)"
+        },
+        "toggle": {
+          "background": "hsl(268, 71%, 12%)",
+          "indicator": "hsl(176, 100%, 44%)"
+        },
+        "buttons": {
+          "delReset": {
+            "active": {
+              "background": "hsla(176, 100%, 79%, 1)",
+              "shadow": "hsla(285, 91%, 52%, 1)"
+            },
+            "background": "hsl(176, 100%, 44%)",
+            "shadow": "hsl(177, 92%, 70%)",
+            "text": "hsl(198, 20%, 13%)"
+          },
+          "equals": {
+            "active": {
+              "background": "hsla(280, 56%, 44%, 1)",
+              "shadow": "hsla(176, 93%, 70%, 1)"
+            },
+            "background": "hsl(281, 89%, 26%)",
+            "shadow": "hsl(285, 91%, 52%)",
+            "text": "hsl(0, 0%, 100%)"
+          },
+          "numericOp": {
+            "active": {
+              "background": "hsla(268, 54%, 44%, 1)",
+              "shadow": "hsla(290, 70%, 36%, 1)"
+            },
+            "background": "hsl(268, 47%, 21%)",
+            "shadow": "hsl(290, 70%, 36%)",
+            "text": "hsl(52, 100%, 62%)"
+          }
+        }
+      }
+    }
+  }
+}

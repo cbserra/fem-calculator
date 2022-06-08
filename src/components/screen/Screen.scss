@@ -2,21 +2,29 @@
 
 .screen-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   width: 100%;
   height: 5.5rem;
-  background-color: $theme1-bg-screen;
   border-radius: 0.625rem;
   padding: 1rem;
+  flex-direction: column;
 }
 
-.screen-value {
+.screen-total {
   font-size: 2.5rem;
   line-height: 2.25rem;
-
+  min-height: 2.25rem;
   text-align: right;
   letter-spacing: -0.0625rem;
+}
+
+.screen-register {
+  font-size: 1.5rem;
+  line-height: 1.25rem;
+  min-height: 1.25rem;
+  text-align: right;
+  letter-spacing: -0.03175rem;
 }
 
 @media (min-width: 700px) {
@@ -26,9 +34,16 @@
     border-radius: 0.625rem;
   }
 
-  .screen-value {
+  .screen-total {
     font-size: 3.5rem;
     line-height: 3.25rem;
     letter-spacing: -0.0625rem;
+  }
+
+  .screen-register {
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+    text-align: right;
+    letter-spacing: -0.03175rem;
   }
 }

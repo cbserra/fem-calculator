@@ -1,35 +1,38 @@
-import { OperationCanceledException } from "typescript";
-import { BinaryOperation, CalculatorArgument, Operation, StringNumber, UnaryOperation } from "../CalculatorTypes";
+// import math from "mathjs";
+import {  DelKey, OperatorKey, ResetKey } from "./CalculatorTypes";
+const math = require('mathjs')
 
-export function calculateBinary(leftOperand: StringNumber, operator: BinaryOperation, rightOperand: StringNumber): number {
-
-    switch (operator) {
-        case '+':
-            return parseFloat(leftOperand) + parseFloat(rightOperand)
-        case '-':
-            return parseFloat(leftOperand) - parseFloat(rightOperand)
-        case '*':
-            return parseFloat(leftOperand) * parseFloat(rightOperand)
-        case '/':
-            return parseFloat(leftOperand) / parseFloat(rightOperand)
-    }
+export function calculateBinary(leftOperand: string, operator: OperatorKey, rightOperand: string): number {
+    let result = math.evaluate(`${leftOperand} ${operator} ${rightOperand}`)
+    // switch (operator) {
+        
+    //     case '+':
+    //         return parseFloat(leftOperand) + parseFloat(rightOperand)
+    //     case '-':
+    //         return parseFloat(leftOperand) - parseFloat(rightOperand)
+    //     case '*':
+    //         return parseFloat(leftOperand) * parseFloat(rightOperand)
+    //     case '/':
+    //         return parseFloat(leftOperand) / parseFloat(rightOperand)
+    // }
     
-    return 0;
+    return result;
 }
 
-export function calculateUnary(operand: number, operator: UnaryOperation) {
+const deleteFromScreen = (operand: string): string => {
+    return operand.substring(0, operand.length-1)
+}
 
-    switch (operator) {
-        case '=':
-            return operand
+export function deleteOrReset(screenText: string, key: DelKey | ResetKey): string {
+    
+    switch (key) {
         case 'DEL': 
-            let strOperand = String(operand)
-            if (strOperand.length > 1) {
-                return strOperand.substring(1)
+            if (screenText !== undefined && screenText !== null && screenText.length > 1) {
+                return deleteFromScreen(screenText)
+            } else {
+                return '0'
             }
-            return 0
         case 'RESET':
-            return 0
+            return '0'
     }
-
 }

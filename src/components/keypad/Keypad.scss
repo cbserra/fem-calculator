@@ -17,9 +17,9 @@
 .keypad-container {
   display: grid;
   //   width: 60%;
-  margin: 1.5rem;
+  margin-block: 1.5rem;
   padding: 1.5rem;
-  background-color: $theme1-bg-keypad;
+  //   background-color: $theme1-bg-keypad;
   border-radius: 1rem;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: auto auto auto auto auto;
