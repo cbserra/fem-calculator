@@ -7,7 +7,6 @@ const ThemeSelector = (props: {setter: any}) => {
     const {theme, allThemes, setMode } = useTheme()
 
     const themeSwitcher = (selectedTheme: CalculatorTheme) => {
-        console.log(selectedTheme);
         setMode(selectedTheme);
         props.setter(selectedTheme);
     };
@@ -46,7 +45,20 @@ const ThemeSelector = (props: {setter: any}) => {
                         value="3" 
                         onChange={() => themeSwitcher(allThemes.data.three)}
                         checked={theme.id === 'theme3'} />
-                    <div className="switch-indicator"></div>
+                    <div 
+                        className="switch-indicator"
+                        onClick={() => {
+                                switch (theme.id) {
+                                    case "theme1":
+                                        return themeSwitcher(allThemes.data.two)
+                                    case "theme2":
+                                        return themeSwitcher(allThemes.data.three)
+                                    default:
+                                        return themeSwitcher(allThemes.data.one)
+                                }
+                            }
+                        }
+                    ></div>
                 </div>
             </div>
         </div>

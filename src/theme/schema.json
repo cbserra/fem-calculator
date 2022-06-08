@@ -18,7 +18,10 @@
         },
         "toggle": {
           "background": "hsl(224, 36%, 15%)",
-          "indicator": "hsl(6, 63%, 50%)"
+          "indicator": "hsl(6, 63%, 50%)",
+          "active": {
+            "indicator": "hsla(6, 93%, 67%, 1)"
+          }
         },
         "buttons": {
           "delReset": {
@@ -58,18 +61,21 @@
       "colors": {
         "body": {
           "background": "hsl(0, 0%, 90%)",
-          "text": "hsl(221, 14%, 31%)"
+          "text": "hsla(60, 10%, 19%, 1)"
         },
         "keypad": {
           "background": "hsl(0, 5%, 81%)"
         },
         "screen": {
           "background": "hsl(0, 0%, 93%)",
-          "text": "hsl(221, 14%, 31%)"
+          "text": "hsla(60, 10%, 19%, 1)"
         },
         "toggle": {
           "background": "hsl(0, 5%, 81%)",
-          "indicator": "hsl(25, 98%, 40%)"
+          "indicator": "hsl(25, 98%, 40%)",
+          "active": {
+            "indicator": "hsla(25, 100%, 61%, 1)"
+          }
         },
         "buttons": {
           "delReset": {
@@ -120,7 +126,10 @@
         },
         "toggle": {
           "background": "hsl(268, 71%, 12%)",
-          "indicator": "hsl(176, 100%, 44%)"
+          "indicator": "hsl(176, 100%, 44%)",
+          "active": {
+            "indicator": "hsla(280, 56%, 44%, 1)"
+          }
         },
         "buttons": {
           "delReset": {

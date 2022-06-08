@@ -66,6 +66,10 @@ export const GlobalStyles = createGlobalStyle<{theme: CalculatorTheme}>`
       background-color: ${({ theme }) => theme.colors.toggle.indicator};
   }
 
+  .switch-indicator:hover {
+    background-color: ${({ theme }) => theme.colors.toggle.active.indicator};
+}
+
   .buttons {
       background-color: ${({ theme }) => theme.colors.toggle.background};
   }

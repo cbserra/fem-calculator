@@ -50,7 +50,10 @@ export interface CalculatorTheme {
         },
         toggle: {
             background: string,
-            indicator: string
+            indicator: string,
+            active: {
+                indicator: string
+            }
         },
         buttons: {
             delReset: {
