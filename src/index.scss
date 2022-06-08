@@ -1,6 +1,5 @@
 @import "normalize-scss/sass/normalize/import-now";
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
-@import "/src/styles/colors.scss";
 
 html,
 body {
@@ -26,7 +25,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: auto;
 }

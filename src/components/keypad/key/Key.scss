@@ -1,7 +1,4 @@
-@import "/src/styles/colors.scss";
-
 .key {
-  //   font-family: $font-family;
   cursor: pointer;
   display: flex;
   height: 4rem;
@@ -28,45 +25,6 @@
   font-size: 1.25rem;
   line-height: 1.125rem;
   letter-spacing: -0.02rem;
-  //   color: $theme1-darkbg-text;
-}
-
-.key-color-3 {
-  //   color: $theme1-lightbg-text;
-}
-
-.key-color-1 {
-  //   background-color: $theme1-key2-bg;
-  //   box-shadow: inset 0px -4px 0px $theme1-key2-shadow;
-}
-
-.key-color-1:active {
-  //   transform: scale(0.98);
-  //   box-shadow: inset 3px 2px 22px 1px $theme1-key2-shadow;
-}
-
-.key-color-2 {
-  //   background-color: $theme1-key1-bg;
-  //   box-shadow: inset 0px -4px 0px $theme1-key1-shadow;
-}
-
-.key-color-2:active {
-  transform: scale(0.98);
-  /* Scaling button to 0.98 to its original size */
-  //   box-shadow: inset 3px 2px 22px 1px $theme1-key1-shadow;
-  /* Lowering the shadow */
-}
-
-.key-color-3 {
-  //   background-color: $theme1-key3-bg;
-  //   box-shadow: inset 0px -4px 0px $theme1-key3-shadow;
-}
-
-.key-color-3:active {
-  //   transform: scale(0.98);
-  /* Scaling button to 0.98 to its original size */
-  //   box-shadow: inset 3px 2px 22px 1px $theme1-key3-shadow;
-  /* Lowering the shadow */
 }
 
 @media (min-width: 750px) {

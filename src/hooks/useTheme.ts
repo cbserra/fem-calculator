@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { CalculatorTheme, CalculatorThemeData } from "../utils/CalculatorTypes";
 import _ from 'lodash';
 import * as jsonThemes from '../theme/schema.json';
@@ -6,19 +6,16 @@ import useLocalStorage from "use-local-storage";
 
 export const useTheme = () => {
   const [allThemes] = useLocalStorage<CalculatorThemeData>('all-themes', jsonThemes as CalculatorThemeData)
-  const [currentTheme, setCurrentTheme] = useLocalStorage<CalculatorTheme>('current-theme', allThemes.data.one)
+  const [currentTheme, setCurrentTheme] = useLocalStorage<CalculatorTheme | undefined>('current-theme', undefined)
   const [theme, setTheme] = useState(allThemes.data.one);
   const [themeLoaded, setThemeLoaded] = useState(false);
+  
+  //, [allThemes.data.three, allThemes.data.two, isSystemInDarkMode.matches])
 
-  // const isSystemInDarkMode = matchMedia("(prefers-color-scheme: dark)")
-  // const getPreferredColorScheme = useCallback((): CalculatorTheme => { 
-  //   return isSystemInDarkMode.matches ? allThemes.data.three : allThemes.data.two
-  // }, [allThemes.data.three, allThemes.data.two, isSystemInDarkMode.matches])
-
-  const setMode = (mode: CalculatorTheme) => {
+  const setMode = useCallback((mode: CalculatorTheme) => {
     setCurrentTheme(mode)
     setTheme(mode);
-  };
+  },[setCurrentTheme]);
 
   const getFonts = () => {
     const allFonts = _.values(_.mapValues(allThemes.data, 'font'));
@@ -26,10 +23,13 @@ export const useTheme = () => {
   }
 
   useEffect(() =>{
-    const localTheme = currentTheme;
-    localTheme ? setTheme(localTheme) : setTheme(allThemes.data.one);
+    const isSystemInDarkMode = matchMedia("(prefers-color-scheme: dark)")
+    const getPreferredColorScheme = (): CalculatorTheme => isSystemInDarkMode.matches ? allThemes.data.three : allThemes.data.two
+
+    const preferredTheme = currentTheme || getPreferredColorScheme();
+    preferredTheme ? setMode(preferredTheme) : setMode(allThemes.data.one);
     setThemeLoaded(true);
-  }, [allThemes.data.one, currentTheme]);
+  }, [allThemes, currentTheme, setMode]);
 
   return { currentTheme, themeLoaded, setTheme, theme, getFonts, allThemes, setMode };
 

@@ -30,11 +30,9 @@ const App = () => {
 
   const setLastKeyPressed = (key: CalculatorKey) => {
     lastKeyPressed.current = key
-    console.log(`lastKeyPressed=${lastKeyPressed.current}`)
   }
 
   const callEvaluate = (left: string, op: OperatorKey, right: string) => {
-    console.log(`inside callEvaluate, left=${left}, op=${op}, right=${right}`)
     const expression = `${left} ${op} ${right}`
     const total = evaluate(expression)
     
@@ -45,7 +43,6 @@ const App = () => {
   }
 
   const handleNumberInput = (arg: NumberKey) => {
-      console.log(`inside handleNumberInput, arg = ${arg}, leftOperand.current=${leftOperand.current}, operator.current=${operator.current}, rightOpernad.current=${rightOperand.current}`)
       
       if (lastKeyPressedWasOperator()) {
         setScreenTotal(arg)
@@ -57,7 +54,6 @@ const App = () => {
   }
 
   const handleDecimalInput = (arg: DecimalKey) => {
-    console.log(`inside handleDecimalInput, arg = ${arg}`)
 
       if (lastKeyPressedWasEqualsOrOperator()) {
         setScreenTotal(`0${arg}`)  
@@ -69,7 +65,6 @@ const App = () => {
   }
 
   const handleEqualsInput = (key: EqualsKey) => {
-    console.log(`inside handleEqualsInput, key = ${key}`)
 
     if (leftOperand.current !== undefined && operator.current !== undefined) {
       rightOperand.current = screenTotal
@@ -80,7 +75,6 @@ const App = () => {
   }
 
   const handleOperatorInput = (key: OperatorKey) => {
-    console.log(`inside handleOperatorInput, arg = ${key}`)
     const prevOperator = operator?.current ? operator.current : key
 
     if (leftOperand.current === undefined) {
@@ -89,7 +83,6 @@ const App = () => {
     } else if (rightOperand.current === undefined) {
       rightOperand.current = screenTotal
       leftOperand.current = callEvaluate(leftOperand.current, prevOperator, rightOperand.current)
-      console.log(`after callEvaluate, screenTotal=${screenTotal}`)
     } else {
       leftOperand.current = callEvaluate(leftOperand.current, prevOperator, rightOperand.current)
     }
@@ -99,10 +92,7 @@ const App = () => {
   }
 
   const handleDelete = (key: DelKey) => {
-      console.log(`inside handleDelete, key=${key}`)
       setScreenTotal(prevValue => {
-        console.log(`prevValue = ${prevValue}`)
-        console.log(`prevValue.substring(-1) = ${prevValue.substring(0, prevValue.length - 1)}`)
         return (prevValue === '0' || prevValue.length === 1) ? '0' : prevValue.substring(0, prevValue.length - 1)
       })
 
@@ -110,7 +100,6 @@ const App = () => {
   }
 
   const handleReset = (key: ResetKey) => {
-    console.log(`inside handleReset, key=${key}`)
 
     setScreenTotal('0')
     resetOperatorAndOperands()
@@ -146,7 +135,6 @@ const App = () => {
   ]
 
   useEffect(() => {
-    console.log(`inside App's useEffect, theme=${theme.name}`)
     setSelectedTheme(theme)
    }, [themeLoaded, theme])
 
