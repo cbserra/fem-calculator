@@ -3,12 +3,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-block: 1rem;
 
   h1 {
     font-size: 2rem;
     line-height: 29px;
     text-align: center;
     letter-spacing: -0.5333px;
+    margin: 0;
   }
 
   nav {

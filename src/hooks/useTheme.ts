@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { CalculatorTheme, CalculatorThemeData } from "../utils/CalculatorTypes";
-import _ from 'lodash';
 import * as jsonThemes from '../theme/schema.json';
 import useLocalStorage from "use-local-storage";
 
@@ -10,17 +9,10 @@ export const useTheme = () => {
   const [theme, setTheme] = useState(allThemes.data.one);
   const [themeLoaded, setThemeLoaded] = useState(false);
   
-  //, [allThemes.data.three, allThemes.data.two, isSystemInDarkMode.matches])
-
   const setMode = useCallback((mode: CalculatorTheme) => {
     setCurrentTheme(mode)
     setTheme(mode);
   },[setCurrentTheme]);
-
-  const getFonts = () => {
-    const allFonts = _.values(_.mapValues(allThemes.data, 'font'));
-    return allFonts;
-  }
 
   useEffect(() =>{
     const isSystemInDarkMode = matchMedia("(prefers-color-scheme: dark)")
@@ -31,6 +23,6 @@ export const useTheme = () => {
     setThemeLoaded(true);
   }, [allThemes, currentTheme, setMode]);
 
-  return { currentTheme, themeLoaded, setTheme, theme, getFonts, allThemes, setMode };
+  return { currentTheme, themeLoaded, setTheme, theme, allThemes, setMode };
 
 };

@@ -13,11 +13,11 @@ import { useTheme } from './hooks/useTheme'
 const Container = styled.div``
 
 const App = () => {
-  const {theme, themeLoaded, getFonts} = useTheme();
+  const {theme, themeLoaded} = useTheme();
 
   const [screenTotal, setScreenTotal] = useState<string>('0')
-  // const [screenRegister, setScreenRegister] = useState<string[]>([''])
   const [selectedTheme, setSelectedTheme] = useState(theme)
+  const [flash, setFlash] = useState(false)
 
   const leftOperand = useRef<string>()
   const rightOperand = useRef<string>()
@@ -36,7 +36,7 @@ const App = () => {
     const expression = `${left} ${op} ${right}`
     const total = evaluate(expression)
     
-    setScreenTotal(total)
+    setScreenTotal(String(total))
     resetOperatorAndOperands()
 
     return total
@@ -65,7 +65,7 @@ const App = () => {
   }
 
   const handleEqualsInput = (key: EqualsKey) => {
-
+    setFlash(prevValue => !prevValue)
     if (leftOperand.current !== undefined && operator.current !== undefined) {
       rightOperand.current = screenTotal
       callEvaluate(leftOperand.current, operator.current, rightOperand.current)
@@ -74,12 +74,18 @@ const App = () => {
     setLastKeyPressed(key)
   }
 
+  const flashTotal = () => {
+    setFlash(true)
+    setTimeout(() => setFlash(false), 200);
+  }
+
   const handleOperatorInput = (key: OperatorKey) => {
+    flashTotal()
+
     const prevOperator = operator?.current ? operator.current : key
 
     if (leftOperand.current === undefined) {
       leftOperand.current = screenTotal
-      // setScreenRegister([`${leftOperand.current}${prevOperator}`])
     } else if (rightOperand.current === undefined) {
       rightOperand.current = screenTotal
       leftOperand.current = callEvaluate(leftOperand.current, prevOperator, rightOperand.current)
@@ -92,15 +98,15 @@ const App = () => {
   }
 
   const handleDelete = (key: DelKey) => {
-      setScreenTotal(prevValue => {
-        return (prevValue === '0' || prevValue.length === 1) ? '0' : prevValue.substring(0, prevValue.length - 1)
+      setScreenTotal((prevValue:string) => {
+        return (prevValue === '0' || prevValue.length === 1) ? '0' : prevValue?.substring(0, prevValue.length - 1)
       })
 
       setLastKeyPressed(key)
   }
 
   const handleReset = (key: ResetKey) => {
-
+    setFlash(prevValue => !prevValue)
     setScreenTotal('0')
     resetOperatorAndOperands()
 
@@ -138,15 +144,6 @@ const App = () => {
     setSelectedTheme(theme)
    }, [themeLoaded, theme])
 
-  // 4: Load all the fonts
-  // useEffect(() => {
-  //   WebFont.load({
-  //     google: {
-  //       families: getFonts()
-  //     }
-  //   })
-  // },[getFonts])
-
   return (
     <>
     { themeLoaded && <ThemeProvider theme={selectedTheme}>
@@ -155,9 +152,7 @@ const App = () => {
           <Header setter={ setSelectedTheme }/>
           <Screen 
                   screenTotal={screenTotal} 
-                  // setScreenTotal={setScreenTotal} 
-                  // screenRegister={screenRegister} 
-                  // setScreenRegister={setScreenRegister} 
+                  flash={flash}
           />
           <Keypad keys={keys} />
       </Container>

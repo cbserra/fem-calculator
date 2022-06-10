@@ -32,17 +32,14 @@ export const GlobalStyles = createGlobalStyle<{theme: CalculatorTheme}>`
   
   .key-color-1:hover, .key-color-1:active {
     background-color: ${({ theme }) => theme.colors.buttons.delReset.active.background};
-    // box-shadow: inset 3px 2px 22px 1px ${({ theme }) => theme.colors.buttons.delReset.active.shadow};
   }
   
   .key-color-2:hover, .key-color-2:active {
     background-color: ${({ theme }) => theme.colors.buttons.equals.active.background};
-    // box-shadow: inset 3px 2px 22px 1px ${({ theme }) => theme.colors.buttons.equals.active.shadow};
   }
   
   .key-color-3:hover, .key-color-3:active {
     background-color: ${({ theme }) => theme.colors.buttons.numericOp.active.background};
-    // box-shadow: inset 3px 2px 22px 1px ${({ theme }) => theme.colors.buttons.numericOp.active.shadow};
   }
 
   .key-color-1:active, .key-color-2:active, .key-color-3:active {
