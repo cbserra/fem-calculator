@@ -5,9 +5,9 @@ const Header = (props: {setter: any}) => {
     return (
         <header className="header">
             <h1>calc</h1>
-            <nav>
+            {/* <nav> */}
                 <ThemeSelector setter={props.setter} />
-            </nav>
+            {/* </nav> */}
         </header>
     )
 }
