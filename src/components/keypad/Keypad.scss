@@ -86,3 +86,9 @@
 .key-8 {
   grid-area: key-8;
 }
+
+@media (min-width: 750px) {
+  .keypad-container {
+    gap: 1.25rem 1.25rem;
+  }
+}

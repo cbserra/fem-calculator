@@ -1,9 +1,8 @@
 import { evaluate } from 'mathjs'
 import { useEffect, useRef, useState } from 'react'
 import './App.scss'
-import { DecimalKey, OperatorKey, EqualsKey, NumberKey, CalculatorKey, ResetKey, DelKey } from './utils/CalculatorTypes'
+import { DecimalKey, OperatorKey, EqualsKey, NumberKey, CalculatorKey, ResetKey, DelKey, OPERATOR_KEYS, EQUALS_KEY } from './utils/CalculatorTypes'
 import Header from './components/header/Header'
-import Key from './components/keypad/key/Key'
 import Keypad from './components/keypad/Keypad'
 import Screen from './components/screen/Screen'
 import styled, { ThemeProvider } from "styled-components"
@@ -24,8 +23,8 @@ const App = () => {
   const operator = useRef<OperatorKey>()
 
   const lastKeyPressed = useRef<CalculatorKey>()
-  const lastKeyPressedWasEquals = () => lastKeyPressed?.current && '=' === lastKeyPressed.current
-  const lastKeyPressedWasOperator = () => lastKeyPressed?.current && ['+', '-', '*', '/'].includes(lastKeyPressed.current)
+  const lastKeyPressedWasEquals = () => lastKeyPressed?.current && EQUALS_KEY === lastKeyPressed.current
+  const lastKeyPressedWasOperator = () => lastKeyPressed?.current && OPERATOR_KEYS.includes(lastKeyPressed.current)
   const lastKeyPressedWasEqualsOrOperator = () => lastKeyPressedWasEquals() || lastKeyPressedWasOperator()
 
   const setLastKeyPressed = (key: CalculatorKey) => {
@@ -43,7 +42,6 @@ const App = () => {
   }
 
   const handleNumberInput = (arg: NumberKey) => {
-      
       if (lastKeyPressedWasOperator()) {
         setScreenTotal(arg)
       } else {
@@ -54,7 +52,6 @@ const App = () => {
   }
 
   const handleDecimalInput = (arg: DecimalKey) => {
-
       if (lastKeyPressedWasEqualsOrOperator()) {
         setScreenTotal(`0${arg}`)  
       } else {
@@ -98,11 +95,11 @@ const App = () => {
   }
 
   const handleDelete = (key: DelKey) => {
-      setScreenTotal((prevValue:string) => {
-        return (prevValue === '0' || prevValue.length === 1) ? '0' : prevValue?.substring(0, prevValue.length - 1)
-      })
+    setScreenTotal((prevValue:string) => {
+      return (prevValue === '0' || prevValue.length === 1) ? '0' : prevValue?.substring(0, prevValue.length - 1)
+    })
 
-      setLastKeyPressed(key)
+    setLastKeyPressed(key)
   }
 
   const handleReset = (key: ResetKey) => {
@@ -118,27 +115,6 @@ const App = () => {
     operator.current = undefined
     rightOperand.current = undefined
   }
-  
-  const keys: JSX.Element[] = [
-    <Key value={'7'} bgType={3} width={1} key={1} className={'key-7'} handleClick={handleNumberInput} />,
-    <Key value={'8'} bgType={3} width={1} key={2} className={'key-8'} handleClick={handleNumberInput} />,
-    <Key value={'9'} bgType={3} width={1} key={3} className={'key-9'} handleClick={handleNumberInput} />,
-    <Key value={'DEL'} bgType={2} width={1} key={4} className={'key-del key-func'} handleClick={handleDelete} />,
-    <Key value={'4'} bgType={3} width={1} key={5} className={'key-4'} handleClick={handleNumberInput} />,
-    <Key value={'5'} bgType={3} width={1} key={6} className={'key-5'} handleClick={handleNumberInput} />,
-    <Key value={'6'} bgType={3} width={1} key={7} className={'key-6'} handleClick={handleNumberInput} />,
-    <Key value={'+'} bgType={3} width={1} key={8} className={'key-add key-func'} handleClick={handleOperatorInput} />,
-    <Key value={'1'} bgType={3} width={1} key={9} className={'key-1'} handleClick={handleNumberInput} />,
-    <Key value={'2'} bgType={3} width={1} key={10} className={'key-2'} handleClick={handleNumberInput} />,
-    <Key value={'3'} bgType={3} width={1} key={11} className={'key-3'} handleClick={handleNumberInput} />,
-    <Key value={'-'} bgType={3} width={1} key={12} className={'key-sub key-func'} handleClick={handleOperatorInput} />,
-    <Key value={'.'} bgType={3} width={1} key={13} className={'key-dec'} handleClick={handleDecimalInput} />,
-    <Key value={'0'} bgType={3} width={1} key={14} className={'key-0'} handleClick={handleNumberInput} />,
-    <Key value={'/'} bgType={3} width={1} key={15} className={'key-div key-func'} handleClick={handleOperatorInput} />,
-    <Key value={'*'} bgType={3} width={1} key={16} className={'key-mul key-func'} handleClick={handleOperatorInput} />,
-    <Key value={'RESET'} bgType={2} width={2} key={17} className={'key-reset key-func'} handleClick={handleReset} />,
-    <Key value={'='} bgType={1} width={2} key={18} className={'key-eq key-func'} handleClick={handleEqualsInput} />
-  ]
 
   useEffect(() => {
     setSelectedTheme(theme)
@@ -155,7 +131,14 @@ const App = () => {
                     screenTotal={screenTotal} 
                     flash={flash}
             />
-            <Keypad keys={keys} />
+            <Keypad 
+              handleDecimalInput={handleDecimalInput}
+              handleDelete={handleDelete}
+              handleEqualsInput={handleEqualsInput}
+              handleNumberInput={handleNumberInput}
+              handleOperatorInput={handleOperatorInput}
+              handleReset={handleReset}
+              />
           </main>
       </Container>
       </ThemeProvider>

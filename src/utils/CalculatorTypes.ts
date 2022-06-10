@@ -1,7 +1,16 @@
+export const OPERATOR_KEYS = ['+', '-', '*', '/', 'x']
+export const EQUALS_KEY = '='
+export const NUMBER_KEYS = ['0','1','2','3','4','5','6','7','8','9']
+export const KB_ENTER_KEY = 'Enter'
+export const KB_DEL_KEY = 'Backspace'
+export const DEL_KEY = 'DEL'
+export const RESET_KEY = 'RESET'
+export const DECIMAL_KEY = '.'
+
 export type ThemeMode = 'one' | 'two' | 'three'
 
 export type CalculatorKey = OperatorKey | DelKey | ResetKey | EqualsKey | DecimalKey | NumberKey
-export type OperatorKey = '+' | '-' | '*' | '/'
+export type OperatorKey = '+' | '-' | '*' | '/' | 'x'
 export type DelKey = 'DEL'
 export type ResetKey = 'RESET'
 export type EqualsKey = '=' 
