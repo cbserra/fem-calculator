@@ -150,11 +150,13 @@ const App = () => {
         <GlobalStyles/>
         <Container className='App'>
           <Header setter={ setSelectedTheme }/>
-          <Screen 
-                  screenTotal={screenTotal} 
-                  flash={flash}
-          />
-          <Keypad keys={keys} />
+          <main>
+            <Screen 
+                    screenTotal={screenTotal} 
+                    flash={flash}
+            />
+            <Keypad keys={keys} />
+          </main>
       </Container>
       </ThemeProvider>
      }
